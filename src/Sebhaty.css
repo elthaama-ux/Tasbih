@@ -1,0 +1,739 @@
+/* --- Variables Theme Setup --- */
+.sb-root.light {
+  --bg-main: #fcfcfc;
+  --bg-card: #ffffff;
+  --bg-card-sub: #fff5ee;
+  --border-color: #ffd8be;
+  --text-main: #1a1a1a;
+  --text-muted: #555555;
+  --accent-color: #ff6b00;
+  --accent-hover: #ff8533;
+  --shadow-color: rgba(255, 107, 0, 0.08);
+  --glow-color: rgba(255, 107, 0, 0.45);
+  --glow-strong: rgba(255, 107, 0, 0.75);
+}
+
+.sb-root.dark {
+  --bg-main: #0a0a0a;
+  --bg-card: #141414;
+  --bg-card-sub: #1f1f1f;
+  --border-color: #2b2b2b;
+  --text-main: #ffffff;
+  --text-muted: #b0b0b0;
+  --accent-color: #ff6b00;
+  --accent-hover: #ff8533;
+  --shadow-color: rgba(0, 0, 0, 0.8);
+  --glow-color: rgba(255, 107, 0, 0.5);
+  --glow-strong: rgba(255, 107, 0, 0.9);
+}
+
+/* Base Styles */
+.sb-root {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+}
+
+/* --- Scroll Reveal Animations (أنيميشن الظهور الاحترافي عند السكرول) --- */
+.sb-scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.sb-scroll-reveal.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Keyframe Animations */
+@keyframes sbPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); color: var(--accent-hover); text-shadow: 0 0 15px var(--glow-strong); }
+  100% { transform: scale(1); }
+}
+
+@keyframes sbPulseGlow {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 var(--glow-color);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px 12px rgba(255, 107, 0, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 107, 0, 0);
+  }
+}
+
+.sb-pop {
+  display: inline-block;
+  animation: sbPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Header */
+.sb-header {
+  background-color: var(--bg-card);
+  border-bottom: 2px solid var(--border-color);
+  padding: 18px 0;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.sb-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sb-main-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 8px var(--glow-color);
+}
+
+.sb-main-title:hover {
+  color: #ffffff;
+  text-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-hover);
+  transform: scale(1.05);
+}
+
+.sb-icon-btn {
+  background: var(--bg-card-sub);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  font-size: 18px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sb-icon-btn:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+  transform: rotate(15deg) scale(1.15);
+  box-shadow: 0 0 20px var(--glow-strong);
+  border-color: var(--accent-color);
+}
+
+.sb-icon-btn:active {
+  transform: scale(0.95);
+}
+
+/* Container & Hero */
+.sb-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+  flex: 1;
+}
+
+.sb-hero {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.sb-subtitle {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px var(--glow-color);
+  transition: text-shadow 0.3s ease;
+}
+
+.sb-hero:hover .sb-subtitle {
+  text-shadow: 0 0 18px var(--glow-strong);
+}
+
+.sb-hero h2 {
+  font-size: 30px;
+  margin: 12px 0;
+  transition: all 0.3s ease;
+}
+
+.sb-hero h2:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 15px var(--glow-color);
+  transform: translateY(-2px);
+}
+
+.sb-hero p {
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.sb-hero p:hover {
+  color: var(--text-main);
+}
+
+/* Cards General */
+.sb-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  border: 1.5px solid var(--border-color);
+  padding: 28px;
+  box-shadow: 0 6px 25px var(--shadow-color);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sb-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 30px var(--glow-color);
+}
+
+/* Counter Ring Wrapper & Pulse Glow */
+.sb-ring-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 25px auto;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.sb-ring-wrapper:hover {
+  transform: scale(1.03);
+}
+
+.sb-pulse-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: sbPulseGlow 2.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.sb-ring-wrapper:hover .sb-pulse-glow {
+  animation: none;
+  box-shadow: 0 0 35px var(--glow-strong);
+}
+
+.sb-ring-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  filter: drop-shadow(0 0 8px var(--glow-color));
+}
+
+.sb-ring-bg {
+  fill: none;
+  stroke: var(--bg-card-sub);
+  stroke-width: 12;
+}
+
+.sb-ring-val {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.4s ease-in-out, stroke 0.3s ease;
+}
+
+.sb-ring-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sb-ring-wrapper:hover .sb-ring-center {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.sb-ring-center p {
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.sb-ring-wrapper:hover .sb-ring-center p {
+  color: var(--accent-color);
+  font-weight: bold;
+  text-shadow: 0 0 10px var(--glow-color);
+}
+
+.sb-count-num {
+  font-size: 46px;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-shadow: 0 0 15px var(--glow-color);
+  transition: all 0.3s ease;
+}
+
+.sb-ring-wrapper:hover .sb-count-num {
+  text-shadow: 0 0 25px var(--glow-strong);
+}
+
+/* Counter Card Headings */
+.sb-counter-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sb-dhikr-badge h3 {
+  margin: 5px 0 0 0;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--glow-color);
+}
+
+.sb-target-box strong {
+  font-size: 20px;
+  color: var(--accent-color);
+}
+
+/* Progress Bar */
+.sb-progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.sb-progress-bar {
+  background: var(--bg-card-sub);
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  border: 1px solid var(--border-color);
+}
+
+.sb-progress-fill {
+  background: var(--accent-color);
+  height: 100%;
+  box-shadow: 0 0 12px var(--accent-color);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dhikr Grid & Buttons Hover */
+.sb-dhikr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.sb-dhikr-btn {
+  background: var(--bg-card-sub);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sb-dhikr-btn:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+  border-color: var(--accent-color);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 25px var(--glow-strong);
+}
+
+.sb-dhikr-btn:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+.sb-dhikr-btn.active {
+  background: var(--accent-color);
+  color: #ffffff;
+  border-color: var(--accent-color);
+  box-shadow: 0 6px 20px var(--glow-strong);
+}
+
+/* Controls Buttons Hover */
+.sb-controls {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.sb-ctrl-btn, .sb-reset-btn {
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sb-ctrl-btn {
+  background: var(--bg-card-sub);
+  color: var(--accent-color);
+  font-size: 24px;
+  width: 55px;
+  height: 55px;
+}
+
+.sb-ctrl-btn:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+  border-color: var(--accent-color);
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px var(--glow-strong);
+}
+
+.sb-ctrl-btn:active {
+  transform: scale(0.90);
+}
+
+.sb-reset-btn {
+  background: var(--bg-card-sub);
+  color: var(--accent-color);
+  padding: 0 24px;
+  font-size: 15px;
+}
+
+.sb-reset-btn:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+  border-color: var(--accent-color);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px var(--glow-strong);
+}
+
+.sb-reset-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Dynamic Adhkar Header & Toggle Button */
+.sb-toggle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.sb-toggle-header h2 {
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.sb-toggle-header h2:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 12px var(--glow-color);
+}
+
+.sb-toggle-btn {
+  background: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px var(--glow-color);
+}
+
+.sb-toggle-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px var(--glow-strong);
+}
+
+.sb-toggle-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* Adhkar Cards Hover */
+.sb-adhkar-card {
+  margin-top: 18px;
+  cursor: pointer;
+}
+
+.sb-adhkar-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 10px 30px var(--glow-strong);
+}
+
+.sb-adhkar-card:hover h3 {
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--glow-color);
+}
+
+.sb-adhkar-text {
+  line-height: 1.9;
+  font-size: 16px;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.sb-adhkar-card:hover .sb-adhkar-text {
+  color: var(--text-main);
+}
+
+.sb-num-badge {
+  background: var(--bg-card-sub);
+  color: var(--accent-color);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.sb-adhkar-card:hover .sb-num-badge {
+  background: var(--accent-color);
+  color: #ffffff;
+  box-shadow: 0 0 10px var(--glow-color);
+}
+
+.sb-repeat-tag {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* Footer Hover */
+.sb-footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1.5px solid var(--border-color);
+  margin-top: 50px;
+  background: var(--bg-card);
+}
+
+.sb-footer p {
+  color: var(--accent-color);
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--glow-color);
+}
+
+.sb-wa-link {
+  color: var(--accent-color);
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-shadow: 0 0 8px var(--glow-color);
+}
+
+.sb-wa-link:hover {
+  color: var(--accent-hover);
+  text-shadow: 0 0 20px var(--glow-strong);
+  transform: scale(1.08);
+}
+
+.sb-feedback-hint-link {
+  text-decoration: none;
+}
+
+.sb-feedback-hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sb-feedback-hint:hover {
+  color: var(--accent-color);
+  text-shadow: 0 0 8px var(--glow-color);
+  transform: translateY(-2px);
+}
+/* --- Counter Ring Wrapper & Pure Border Glow --- */
+.sb-ring-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 25px auto;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sb-ring-wrapper:hover {
+  transform: scale(1.04);
+}
+
+/* إلغاء التوهج الخلفي */
+.sb-pulse-glow {
+  display: none;
+}
+
+.sb-ring-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.sb-ring-bg {
+  fill: none;
+  stroke: var(--bg-card-sub);
+  stroke-width: 12;
+}
+
+/* الإشعاع يطبق على خط الإطار البرتقالي المتقدم فقط */
+.sb-ring-val {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.4s ease-in-out, stroke 0.3s ease, filter 0.3s ease;
+  /* شعاع الإطار فقط */
+  filter: drop-shadow(0 0 6px var(--accent-color));
+}
+
+/* عند الهوفر: الإشعاع يقوى على إطار الدائرة فقط */
+.sb-ring-wrapper:hover .sb-ring-val {
+  filter: drop-shadow(0 0 12px var(--accent-color)) drop-shadow(0 0 22px var(--accent-hover));
+}
+
+/* المنتصف: بدون أي إشعاع أو توهج نهائيًا */
+.sb-ring-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.sb-ring-center p {
+  color: var(--text-muted);
+  text-shadow: none !important;
+}
+
+.sb-ring-wrapper:hover .sb-ring-center p {
+  color: var(--accent-color);
+  font-weight: bold;
+  text-shadow: none !important;
+}
+
+/* الرقم بدون أي توهج أو ظل ضوئي */
+.sb-count-num {
+  font-size: 46px;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-shadow: none !important;
+}
+
+.sb-ring-wrapper:hover .sb-count-num {
+  text-shadow: none !important;
+}
+
+/* الأنيماشن الخاص بنبض الدائرة */
+@keyframes sbRingPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* تطبيق الحركة المستمرة على الدائرة */
+.sb-ring-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 25px auto;
+  cursor: pointer;
+  border-radius: 50%;
+  animation: sbRingPulse 2s infinite ease-in-out;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sb-ring-wrapper:hover {
+  animation-play-state: paused;
+  transform: scale(1.08);
+}
+/* تنسيق أزرار الصوت والعناوين */
+.sb-dhikr-title-speak {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* الحاوية الخارجية للمربع */
+.sb-dhikr-btn-wrapper {
+  position: relative; /* لتمكين التموضع المطلق لزر الصوت داخل المربع */
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* إعادة تنسيق الزر الرئيسي ليحتفظ بكامل خلفيته والأورنج والـ hover */
+.sb-dhikr-btn-wrapper .sb-dhikr-btn {
+  width: 100%;
+  padding-left: 35px; /* مساحة جانبية لعدم تداخل النص مع زر الصوت */
+  cursor: pointer;
+}
+
+/* تموضع زر الصوت بشكل متناسق داخل المربع دون التأثير على التنسيق الأصلي */
+.sb-speak-mini-btn {
+  position: absolute;
+  left: 8px; /* يظهر على الشمال لأن الاتجاه RTL */
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: transform 0.2s, opacity 0.2s;
+  z-index: 2;
+}
+
+.sb-speak-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.sb-speak-mini-btn:hover, 
+.sb-speak-btn:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.2); /* الحفاظ على المحاذاة مع التكبير */
+}
+
+.sb-speak-btn:hover {
+  transform: scale(1.2);
+}
+
+.sb-adhkar-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
