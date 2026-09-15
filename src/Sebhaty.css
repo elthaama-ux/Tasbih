@@ -737,3 +737,42 @@
   align-items: center;
   gap: 10px;
 }
+/* 1. إزالة التظليل الشفاف الافتراضي عند الضغط في الموبايل */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sb-ring-wrapper {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+/* 2. تجعل لون الدائرة الأساسي أهدى ومريح للعين */
+.sb-ring-val {
+  stroke: #e67e22; /* لون برتقالي دافئ وأهدى */
+  transition: stroke 0.3s ease, filter 0.3s ease;
+}
+
+/* 3. إلغاء أي خلفية مربعة خلف الدائرة */
+.sb-pulse-glow {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 4. تأثير الهوفر والنقر: تنوير هادئ وتكبير بسيط جدًا */
+.sb-ring-wrapper:hover .sb-ring-val,
+.sb-ring-wrapper:active .sb-ring-val {
+  stroke: #ff9f43; /* إضاءة أسطع قليلاً */
+  filter: drop-shadow(0 0 10px rgba(255, 159, 67, 0.4)); /* توهج برتقالي ناعم وهادئ */
+}
+
+.sb-ring-wrapper:active {
+  transform: scale(0.97); /* استجابة لمسة ضغط خفيفة */
+}
+

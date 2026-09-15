@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Sebhaty from './Sebhaty'
+import { Analytics } from '@vercel/analytics/react'
 import './App.css'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <Sebhaty />
+      <Analytics />
     </>
   )
 }
