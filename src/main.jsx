@@ -8,3 +8,12 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+
+// تسجيل الـ Service Worker لتفعيل التثبيت والعمل بدون إنترنت
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log('Service Worker registered!'))
+      .catch((err) => console.log('SW registration failed:', err));
+  });
+}

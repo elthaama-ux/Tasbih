@@ -776,3 +776,410 @@
   transform: scale(0.97); /* استجابة لمسة ضغط خفيفة */
 }
 
+.sb-visitors-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #d1d5db;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.sb-visitors-badge span {
+  font-weight: bold;
+  color: #10b981;
+}
+
+/* تنسيق زر الدعم الفني والواتساب */
+.sb-feedback-hint-link {
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.sb-feedback-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba(255, 140, 0, 0.12);
+  color: #ff8c00; /* اللون الأورانج للخط */
+  border: 1px solid #ff8c00;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.sb-feedback-hint:hover {
+  background-color: #25d366; /* يتغير للون الواتساب الأخضر عند التحويم */
+  color: #ffffff;
+  border-color: #25d366;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.sb-wa-icon {
+  fill: currentColor;
+}
+/* 1. أنيميشن الاسم ENG AHMED YOUSEF (ينور ويهدى باستمرار) */
+.sb-wa-link {
+  display: inline-block;
+  font-weight: bold;
+  animation: engGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes engGlow {
+  0%, 100% {
+    color: #ff9800;
+    text-shadow: 0 0 5px rgba(255, 152, 0, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    color: #ffe082;
+    text-shadow: 0 0 18px rgba(255, 224, 130, 0.9), 0 0 30px rgba(255, 152, 0, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+/* 2. أنيميشن عبارة (سبحان الله • الحمد لله • الله أكبر) بتبادل الإضاءة باللون البرتقالي */
+.sb-footer-phrases {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sb-phrase-1 {
+  animation: glowAlternate 3s infinite ease-in-out;
+}
+
+.sb-phrase-2 {
+  animation: glowAlternate 3s infinite ease-in-out 1.5s; /* تأخير 1.5 ثانية للتناوب */
+}
+
+@keyframes glowAlternate {
+  0%, 100% {
+    opacity: 0.4;
+    color: inherit;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    color: #ff9800; /* تغيير اللون للبرتقالي */
+    text-shadow: 0 0 14px rgba(255, 152, 0, 0.8), 0 0 25px rgba(255, 152, 0, 0.5); /* إضاءة برتقالية */
+  }
+}
+.sb-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 30px 20px;
+}
+
+.sb-visitors-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #ffaa55;
+  background: rgba(255, 140, 0, 0.08); /* برتقالي شفاف خفيف جداً */
+  border: 1px solid rgba(255, 152, 0, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin: 10px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.sb-visitors-badge:hover {
+  background: rgba(255, 140, 0, 0.18);
+  border-color: rgba(255, 152, 0, 0.35);
+}
+
+.sb-visitors-badge span {
+  font-weight: bold;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* =========================================
+   تنسيق عناوين قسم الأدعية (برتقالي وأبيض مستمر)
+   ========================================= */
+
+/* النص الصغير العلوي (قسم الأدعية الجامعة) */
+.sb-section-title span {
+  color: #ffaa55; /* برتقالي فاتح زاهي */
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* العنوان الرئيسي (أدعية مأثورة ومستجابة) بتدرج برتقالي وأبيض مستمر */
+.sb-section-title h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+  /* تدرج أنيق مستمر بين الأبيض والبرتقالي */
+  background: linear-gradient(135deg, #ffffff 0%, #ff8c00 50%, #ffc04d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  text-shadow: 0 2px 10px rgba(255, 140, 0, 0.2);
+}
+
+/* =========================================
+   تنسيقات قسم القرآن الكريم (برتقالي وأبيض)
+   ========================================= */
+
+/* شريط البحث */
+.sb-quran-search-box {
+  margin: 20px 0 25px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sb-quran-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: 2px solid rgba(255, 140, 0, 0.4);
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.sb-quran-input:focus {
+  border-color: #ff8c00;
+  box-shadow: 0 6px 18px rgba(255, 140, 0, 0.25);
+  background: #ffffff;
+}
+
+/* المشغل الصوتي العالي */
+.sb-quran-player-bar {
+  background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+  border: 2px solid #ff8c00;
+  border-radius: 18px;
+  padding: 18px 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.sb-player-badge {
+  background: #ff8c00;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.sb-player-info h4 {
+  margin: 6px 0 2px 0;
+  color: #d96b00;
+  font-size: 1.3rem;
+}
+
+.sb-player-info p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.sb-audio-element {
+  outline: none;
+  border-radius: 20px;
+  height: 40px;
+}
+
+/* شبكة السور */
+.sb-quran-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* كارت السورة */
+.sb-surah-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 240, 0.9) 100%);
+  border: 2px solid rgba(255, 140, 0, 0.25);
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sb-surah-card:hover {
+  border-color: #ff8c00;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 140, 0, 0.2);
+  background: #ffffff;
+}
+
+.sb-surah-card.active-surah {
+  border-color: #ff8c00;
+  background: #fff8f0;
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.35);
+}
+
+.sb-surah-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sb-surah-num {
+  background: #ff8c00;
+  color: #ffffff;
+  font-weight: bold;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.sb-surah-type {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 600;
+}
+
+.sb-surah-body {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.sb-surah-body h3 {
+  margin: 0 0 4px 0;
+  color: #2c2c2c;
+  font-size: 1.15rem;
+}
+
+.sb-surah-body p {
+  margin: 0;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+.sb-play-surah-btn {
+  width: 100%;
+  background: rgba(255, 140, 0, 0.1);
+  border: 1px solid rgba(255, 140, 0, 0.4);
+  color: #e67300;
+  padding: 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sb-surah-card:hover .sb-play-surah-btn,
+.sb-surah-card.active-surah .sb-play-surah-btn {
+  background: #ff8c00;
+  color: #ffffff;
+}
+/* =========================================================
+   تنسيق مربع المصحف الصوتي (أسود + أورنج مع هوفر)
+   ========================================================= */
+
+/* المربع الرئيسي */
+.sb-quran-banner-card {
+  background-color: #12141c;
+  border: 1px solid #ff7f11;
+  border-radius: 16px;
+  padding: 35px 20px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* تأثير هوفر على المربع بالكامل */
+.sb-quran-banner-card:hover {
+  border-color: #ff9333;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(255, 127, 17, 0.25);
+}
+
+/* العنوان الرئيسي: المصحف الصوتي والقراءة الكامل */
+.sb-quran-banner-card h2 {
+  color: #ffffff;
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.3px;
+  transition: color 0.3s ease;
+}
+
+.sb-quran-banner-card:hover h2 {
+  color: #ff9333;
+}
+
+/* النص الفرعي: استمع إلى القرآن الكريم... */
+.sb-quran-banner-card p {
+  color: #d1d5db;
+  font-size: 1.05rem;
+  margin: 0 0 22px 0;
+  line-height: 1.6;
+}
+
+/* زر الانتقال الأورنج */
+.sb-goto-quran-btn {
+  background: linear-gradient(135deg, #ff7f11 0%, #e65c00 100%);
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 127, 17, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* هوفر الزر */
+.sb-goto-quran-btn:hover {
+  background: linear-gradient(135deg, #ff9333 0%, #ff5500 100%);
+  box-shadow: 0 6px 22px rgba(255, 127, 17, 0.5);
+  transform: scale(1.04);
+}
+
+.sb-goto-quran-btn:active {
+  transform: scale(0.98);
+}

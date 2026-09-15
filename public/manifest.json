@@ -1,17 +1,17 @@
 {
-  "short_name": "السبحة",
-  "name": "السبحة الإلكترونية",
+  "short_name": "السبحة والقرآن",
+  "name": "تطبيق القرآن الكريم والسبحة الإلكترونية",
   "icons": [
     {
       "src": "/icon.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192 512x512"
     }
   ],
   "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1f2937",
   "background_color": "#ffffff",
-  "theme_color": "#10b981",
-  "display": "standalone"
+  "orientation": "portrait"
 }
-
 

@@ -1,0 +1,600 @@
+/* ==========================================
+   QuranSection.css - ألوان وتأثيرات قرآنية (معدل)
+   ========================================== */
+
+.qs-wrapper {
+  width: 100%;
+  transition: all 0.4s ease;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1; /* يضمن ظهور القسم فوق الخلفيات */
+}
+
+/* ------------------------------------------
+   1. الثيم النهاري (أبيض × أورنج)
+   ------------------------------------------ */
+.qs-wrapper.light {
+  --qs-bg-card: #ffffff;
+  --qs-bg-sub: #fff8f0;
+  --qs-text: #1a1a1a;
+  --qs-text-muted: #666666;
+  --qs-border: #ffd8be;
+  --qs-accent: #ff6b00;
+  --qs-accent-hover: #ff8533;
+  --qs-shadow: rgba(255, 107, 0, 0.12);
+  --qs-glow: rgba(255, 107, 0, 0.35);
+}
+
+/* ------------------------------------------
+   2. الثيم الليلي (أسود × أورنج)
+   ------------------------------------------ */
+.qs-wrapper.dark {
+  --qs-bg-card: #181818;
+  --qs-bg-sub: #242424;
+  --qs-text: #ffffff;
+  --qs-text-muted: #aaaaaa;
+  --qs-border: #ff6b00;
+  --qs-accent: #ff6b00;
+  --qs-accent-hover: #ff8533;
+  --qs-shadow: rgba(0, 0, 0, 0.8);
+  --qs-glow: rgba(255, 107, 0, 0.5);
+}
+
+/* العناوين والترويسة */
+.qs-section-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.qs-section-title span {
+  color: var(--qs-accent);
+  font-weight: bold;
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.qs-section-title h2 {
+  color: var(--qs-text);
+  font-size: 1.8rem;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* صندوق البحث بروح وتوهج هوفر */
+.qs-search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.qs-input {
+  width: 100%;
+  max-width: 550px;
+  padding: 14px 22px;
+  border-radius: 30px;
+  border: 2px solid var(--qs-border);
+  background: var(--qs-bg-card);
+  color: var(--qs-text);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--qs-shadow);
+}
+
+.qs-input:hover, .qs-input:focus {
+  border-color: var(--qs-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--qs-glow);
+}
+
+/* مشغل الصوت العلوي */
+.qs-player-bar {
+  background: var(--qs-bg-card);
+  border: 2px solid var(--qs-accent);
+  border-radius: 20px;
+  padding: 20px 25px;
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  box-shadow: 0 8px 25px var(--qs-glow);
+  position: relative;
+  z-index: 5;
+  animation: pulsePlayer 2s infinite ease-in-out;
+}
+
+@keyframes pulsePlayer {
+  0%, 100% { border-color: var(--qs-accent); }
+  50% { border-color: var(--qs-accent-hover); box-shadow: 0 10px 30px var(--qs-glow); }
+}
+
+.qs-player-badge {
+  background: var(--qs-accent);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.qs-player-info h4 {
+  margin: 8px 0 4px 0;
+  color: var(--qs-accent);
+  font-size: 1.4rem;
+}
+
+.qs-player-info p {
+  margin: 0;
+  color: var(--qs-text-muted);
+}
+
+.qs-audio-element {
+  outline: none;
+  border-radius: 25px;
+  height: 42px;
+}
+
+/* شبكة السور */
+.qs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 2; /* إظهار شبكة الكروت في الطبقة العلوية */
+}
+
+/* كارت السورة مع تأثيرات هوفر مكثفة */
+.qs-card {
+  background: var(--qs-bg-card);
+  border: 2px solid var(--qs-border);
+  border-radius: 18px;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px var(--qs-shadow);
+  position: relative;
+  z-index: 3;
+}
+
+/* هوفر حركي قوي للكارت */
+.qs-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: var(--qs-accent);
+  box-shadow: 0 12px 30px var(--qs-glow);
+  background: var(--qs-bg-sub);
+  z-index: 10; /* يضمن إرتفاع الكارت بوضوح أثناء الهوفر دون اختفاء حوافه */
+}
+
+.qs-card.active-surah {
+  border-color: var(--qs-accent);
+  background: var(--qs-bg-sub);
+  box-shadow: 0 0 20px var(--qs-glow);
+}
+
+/* الهيدر داخل الكارت */
+.qs-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.qs-surah-num {
+  background: var(--qs-accent);
+  color: #ffffff;
+  font-weight: bold;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.qs-card:hover .qs-surah-num {
+  transform: rotate(360deg) scale(1.1);
+}
+
+.qs-surah-type {
+  font-size: 0.85rem;
+  color: var(--qs-text-muted);
+  font-weight: 600;
+}
+
+/* محتوى الكارت */
+.qs-card-body {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.qs-card-body h3 {
+  margin: 0 0 5px 0;
+  color: var(--qs-text);
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.qs-card:hover .qs-card-body h3 {
+  color: var(--qs-accent);
+}
+
+.qs-card-body p {
+  margin: 0;
+  color: var(--qs-text-muted);
+  font-size: 0.9rem;
+}
+
+/* زر الاستماع والقراءة */
+.qs-play-btn {
+  width: 100%;
+  background: var(--qs-bg-sub);
+  border: 1.5px solid var(--qs-border);
+  color: var(--qs-accent);
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.qs-card:hover .qs-play-btn,
+.qs-card.active-surah .qs-play-btn {
+  background: var(--qs-accent);
+  color: #ffffff;
+  border-color: var(--qs-accent);
+  box-shadow: 0 4px 15px var(--qs-glow);
+}
+/* أزرار الاستماع والقراءة داخل الكارت */
+.qs-card-actions-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.qs-btn-listen, .qs-btn-read {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.qs-btn-listen {
+  background-color: rgba(255, 127, 17, 0.15);
+  color: #ff7f11;
+  border: 1px solid #ff7f11;
+}
+
+.qs-btn-listen:hover, .qs-btn-listen.playing {
+  background-color: #ff7f11;
+  color: #ffffff;
+}
+
+.qs-btn-read {
+  background-color: #2a2e3d;
+  color: #ffffff;
+  border: 1px solid #3d4255;
+}
+
+.qs-btn-read:hover {
+  background-color: #3d4255;
+  border-color: #ff7f11;
+}
+
+/* نافذة قراءة السورة الكاملة */
+.qs-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.qs-modal-content {
+  background: #1a1d26;
+  border: 1.5px solid #ff7f11;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.qs-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2a2e3d;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.qs-modal-header h2 {
+  color: #ff7f11;
+  margin: 0;
+}
+
+.qs-close-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.qs-close-btn:hover {
+  color: #ffffff;
+}
+
+.qs-loading {
+  text-align: center;
+  color: #ff7f11;
+  padding: 40px;
+  font-size: 1.2rem;
+}
+
+.qs-surah-full-text {
+  overflow-y: auto;
+  padding-left: 10px;
+  line-height: 2.2;
+}
+
+.qs-basmala {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ff7f11;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.qs-ayahs-container {
+  font-size: 1.35rem;
+  color: #ffffff;
+  text-align: justify;
+}
+
+.qs-ayah-num {
+  color: #ff7f11;
+  font-size: 1.1rem;
+  margin: 0 4px;
+}
+/* ==========================================
+   نافذة قراءة السورة المتناسبة مع الموبايل
+========================================== */
+
+/* الخلفية المظلمة الشفافة */
+.qs-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px); /* تأثير ضبابي جمالي خلف النافذة */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 12px; /* مسافة صغيرة للأطراف في الموبايل */
+  box-sizing: border-box;
+}
+
+/* حاوية النافذة */
+.qs-modal-content {
+  background: #1a1d26;
+  border: 1.5px solid #ff7f11;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px; /* العرض المثالي لشاشات الموبايل والتابلت */
+  height: 90vh; /* تأخذ 90% من ارتفاع الشاشة */
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+  animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* هيدر النافذة (العنوان وزر الإغلاق) */
+.qs-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2a2e3d;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  flex-shrink: 0; /* منع انكماش الهيدر عند التمرير */
+}
+
+.qs-modal-header h2 {
+  color: #ff7f11;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.qs-close-btn {
+  background: #2a2e3d;
+  border: 1px solid #3d4255;
+  color: #ffffff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.qs-close-btn:active {
+  background: #ff7f11;
+  transform: scale(0.95);
+}
+
+/* منطقة التمرير والنص القرآن الكريم */
+.qs-surah-full-text {
+  flex: 1;
+  overflow-y: auto; /* تمكين السكرول */
+  padding-left: 6px;
+  padding-right: 6px;
+  -webkit-overflow-scrolling: touch; /* سكرول ناعم في آيفون وموبايل */
+}
+
+/* تخصيص شريط السكرول للموبايل */
+.qs-surah-full-text::-webkit-scrollbar {
+  width: 5px;
+}
+
+.qs-surah-full-text::-webkit-scrollbar-thumb {
+  background: #ff7f11;
+  border-radius: 10px;
+}
+
+.qs-surah-full-text::-webkit-scrollbar-track {
+  background: #2a2e3d;
+}
+
+/* البسملة */
+.qs-basmala {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #ff7f11;
+  margin: 10px 0 18px 0;
+  font-weight: bold;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+/* نص الآيات */
+.qs-ayahs-container {
+  font-size: 1.15rem;
+  color: #ffffff;
+  text-align: justify;
+  line-height: 2.1;
+  direction: rtl;
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+}
+
+.qs-single-ayah {
+  display: inline;
+}
+
+.qs-ayah-num {
+  color: #ff7f11;
+  font-size: 0.95rem;
+  margin: 0 3px;
+  font-weight: bold;
+}
+
+/* نص التحميل */
+.qs-loading {
+  text-align: center;
+  color: #ff7f11;
+  margin: auto;
+  font-size: 1.1rem;
+}
+
+/* ==========================================
+   ميديا كويري للشاشات الصغيرة جداً (Mobiles)
+========================================== */
+@media (max-width: 480px) {
+  .qs-modal-overlay {
+    padding: 8px;
+  }
+
+  .qs-modal-content {
+    height: 94vh;
+    max-height: 94vh;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .qs-modal-header h2 {
+    font-size: 1.15rem;
+  }
+
+  .qs-ayahs-container {
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+
+  .qs-basmala {
+    font-size: 1.1rem;
+  }
+}
+/* ==========================================
+   تنسيق أزرار التحكم في حجم الخط (A+ / A-)
+========================================== */
+
+.qs-modal-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qs-zoom-btn {
+  background: #232733;
+  border: 1px solid #ff7f11;
+  color: #ff7f11;
+  padding: 5px 12px;
+  border-radius: 20px; /* حواف دائرية أنيقة */
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* التأثير عند الاستماتة أو تحريك الماوس */
+.qs-zoom-btn:hover {
+  background: #ff7f11;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(255, 127, 17, 0.3);
+}
+
+/* التأثير المباشر عند اللمس على شاشة الموبايل */
+.qs-zoom-btn:active {
+  transform: scale(0.92);
+  background: #e66e00;
+  color: #ffffff;
+}
